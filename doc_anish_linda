@@ -1,0 +1,45 @@
+1. Importing libraries we may need:
+
+pandas for manipulating and analysis
+numpy for large, multi-dimensional arrays 
+matplotlib for plotting 
+seaborn for visualization 
+
+2. Loading the Data from the Excel Sheet
+
+Giving the code the specific sheet names (Data, DEF, MID, OFF)
+dfs = [] empty list to hold Data Frames
+df = pd.read_excel("Data.xlsx", sheet_name=sheet_name) reads each sheet into Data Frame
+
+Then we append it into our empty list 
+
+3. Cleaning the Data 
+
+data = data.loc[:, ~data.columns.str.contains('^Unnamed')] 
+Selects the rows that are not unnamed 
+
+4. Dropping column
+We renamed the column Name.1 Which python automatically named because we had
+two columns with the name 'Name'. We thought the that it was a problem 
+because that column had a lot of missing values. 
+Renaming didnt fix the problem so we decided to drop the column entirely, since it was 
+not really important overall 
+
+5. Checking for missing values
+data.isnull() using boolean values to find out if the element is missing 
+the .sum() makes the sum of all the missing values for each column 
+
+
+6. Filling missing values numeric 
+data.select_dtypes(include=np.number).columns Selects only columns with numeric data 
+data[numeric_cols].fillna(data[numeric_cols].mean()) Fills the mean of each column into the missing values 
+
+7. Filling missing values categorical 
+for col in categorical_cols:
+    mode_value = data[col].mode()[0]
+    data[col] = data[col].fillna(mode_value) fill the missing values and assign it back to the DataFrame column.
+
+8. Check if values have been filled
+
+9. summary statistics 
+data[numeric_cols].describe(): Generates summary statistics of numeric columns
