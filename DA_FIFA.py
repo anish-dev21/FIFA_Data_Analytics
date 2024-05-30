@@ -44,12 +44,4 @@ print(data.isnull().sum())
 # Drop the "Description" column from the list of numeric columns
 numeric_cols = [col for col in numeric_cols if col != "Description"]
 
-# Summary statistics of numerical features (excluding the "Description" column)
-print("\nSummary Statistics (Using Only Numeric Values, Excluding 'Description' column):")
-print(data[numeric_cols].describe())
 
-# Visualize missing values using a heatmap
-plt.figure(figsize=(10, 6))
-sns.heatmap(data.isnull(), cmap='viridis', yticklabels=False, cbar=False)
-plt.title('Missing Values Heatmap')
-plt.show()
