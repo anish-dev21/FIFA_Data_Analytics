@@ -11,7 +11,7 @@ missing data,
 what is essential for analysis the player performance? 
 ex: (time played in total/appearances)
 
-models:
+**models:
 
 **thoughts:
 Factors for Predicting Real-Life Performance(?)
@@ -27,4 +27,11 @@ such as player injuries, team dynamics, or psychological factors.
 
 
 **Solution:
+
+
+** 
+1) We want to predict if the Fifa ability has a strong reflection on the real life rating
+>>> plot these 2 attributes and find out with the correlation.
+
+2)compare with 3 others.
 
