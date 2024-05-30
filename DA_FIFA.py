@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,6 +18,12 @@ data = pd.concat(dfs, ignore_index=True)
 # Remove unnamed columns
 data = data.loc[:, ~data.columns.str.contains('^Unnamed')]
 
+# Rename the column "Name.1" to "Description"
+data.rename(columns={"Name.1": "Description"}, inplace=True)
+
+#Removing Description Column 
+data = data.drop(columns=["Description"])
+
 # Check for missing values
 print("\nMissing Values Before Cleaning:")
 print(data.isnull().sum())
@@ -31,8 +36,11 @@ data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].mean())
 print("\nMissing Values After Filling:")
 print(data.isnull().sum())
 
-# Summary statistics of numerical features
-print("\nSummary Statistics (Using Only Numeric Values):")
+# Drop the "Description" column from the list of numeric columns
+numeric_cols = [col for col in numeric_cols if col != "Description"]
+
+# Summary statistics of numerical features (excluding the "Description" column)
+print("\nSummary Statistics (Using Only Numeric Values, Excluding 'Description' column):")
 print(data[numeric_cols].describe())
 
 # Visualize missing values using a heatmap
@@ -40,4 +48,8 @@ plt.figure(figsize=(10, 6))
 sns.heatmap(data.isnull(), cmap='viridis', yticklabels=False, cbar=False)
 plt.title('Missing Values Heatmap')
 plt.show()
+
+
+
+
 
