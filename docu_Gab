@@ -1,12 +1,19 @@
-
-*problem statement: 
+**problem statement: 
+1)
 each players has their own strenght and value can't compare a goalkeeper with a stiker.
 too much information, some are not necessery.
 so we decide to scale it down to players with same position and select just a small amount of attributes.
+2)
+data irrealistic (some players have 0 app with positive number in the field "played time"),
+(or an avg. time of over 120 min with a low appearance),
+missing data,
+3)
+what is essential for analysis the player performance? 
+ex: (time played in total/appearances)
 
 models:
 
-*thoughts:
+**thoughts:
 Factors for Predicting Real-Life Performance(?)
 When using FIFA stats to predict real-life performance.
 
@@ -14,7 +21,10 @@ consider:
 Relevant Features:
 Identify which FIFA stats (like pace, dribbling, shooting accuracy) are most predictive of real-life outcomes like goals scored, passes completed, or tackles made.
 
-BONUS: External Factors:
+**BONUS: External Factors:
 external factors(that FIFA might not capture) 
 such as player injuries, team dynamics, or psychological factors.
+
+
+**Solution:
 
