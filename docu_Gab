@@ -1,0 +1,20 @@
+
+*problem statement: 
+each players has their own strenght and value can't compare a goalkeeper with a stiker.
+too much information, some are not necessery.
+so we decide to scale it down to players with same position and select just a small amount of attributes.
+
+models:
+
+*thoughts:
+Factors for Predicting Real-Life Performance(?)
+When using FIFA stats to predict real-life performance.
+
+consider:
+Relevant Features:
+Identify which FIFA stats (like pace, dribbling, shooting accuracy) are most predictive of real-life outcomes like goals scored, passes completed, or tackles made.
+
+BONUS: External Factors:
+external factors(that FIFA might not capture) 
+such as player injuries, team dynamics, or psychological factors.
+
