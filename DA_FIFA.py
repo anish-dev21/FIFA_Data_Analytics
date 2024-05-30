@@ -32,6 +32,11 @@ print(data.isnull().sum())
 numeric_cols = data.select_dtypes(include=np.number).columns
 data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].mean())
 
+# Fill missing values for categorical columns with mode
+categorical_cols = ['Name', 'Rating', 'Fifa Ability Overall', 'Position']
+for col in categorical_cols:
+    data[col].fillna(data[col].mode()[0], inplace=True)
+
 # Check if missing values have been filled
 print("\nMissing Values After Filling:")
 print(data.isnull().sum())
@@ -48,8 +53,3 @@ plt.figure(figsize=(10, 6))
 sns.heatmap(data.isnull(), cmap='viridis', yticklabels=False, cbar=False)
 plt.title('Missing Values Heatmap')
 plt.show()
-
-
-
-
-
