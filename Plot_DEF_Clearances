@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+# from sklearn.linear_model import LinearRegression
+import pandas as pd
+
+# Sample data
+np.random.seed(0)
+# X = np.random.rand(100, 1) * 10  # Independent variable
+# y = 2.5 * X + np.random.randn(100, 1) * 2  # Dependent variable with some noise
+df = pd.read_csv("modified_df_DEF.csv")
+
+# Convert 'Rating' and 'Fifa Ability Overall' columns to numeric, ignoring errors
+df['Clearances per game'] = pd.to_numeric(df['Clearances per game'], errors='coerce')
+df['Fifa Ability Overall'] = pd.to_numeric(df['Fifa Ability Overall'], errors='coerce')
+
+y = df['Clearances per game']
+X = df['Fifa Ability Overall']
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+plt.scatter(X, y, color='black', label='number of clearances')
+
+# Fit a linear regression model
+# model = LinearRegression()
+# model.fit(X, y)
+# y_pred = model.predict(X)
+
+# Plot the linear regression line
+# plt.plot(X, y_pred, color='red', linewidth=2, label='Linear regression line')
+
+# Add labels and legend
+plt.xlabel('FIFA Ability Overall')
+plt.ylabel('Clearances per game')
+plt.title('Scatter Plot with Linear Regression Line')
+plt.legend()
+
+# Show the plot
+plt.show()
