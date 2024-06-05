@@ -52,13 +52,6 @@ try:
     print("Total values:", total_values)
     print("Percentage of accuracy:", accuracy_percentage)
 
-    # Plotting the joint plot
-    plt.figure(figsize=(10, 6))
-    sns.jointplot(x=y_test, y=y_pred, kind='reg', color='skyblue', joint_kws={'scatter_kws': {'alpha': 0.7}})
-    plt.suptitle('Decision Tree Regression: Actual vs Predicted FIFA Ability Overall', y=1.02)
-    plt.xlabel('Actual Ability Overall')
-    plt.ylabel('Predicted FIFA Ability Overall')
-
     # Plot the Decision Tree
     plt.figure(figsize=(20,10))
     plot_tree(regressor, filled=True, feature_names=X.columns)
@@ -67,10 +60,3 @@ try:
 
 except Exception as e:
     print("An error occurred:", e)
-
-
-
-
-
-
-    
