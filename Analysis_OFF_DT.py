@@ -1,8 +1,7 @@
-
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor, plot_tree
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -24,8 +23,8 @@ try:
         raise ValueError("No numeric columns remaining after preprocessing")
 
     # Define the feature and target variables
-    X = df.drop(columns=['Fifa Ability Overall']) #feature
-    y = df['Fifa Ability Overall'] #target
+    X = df.drop(columns=['Fifa Ability Overall']) # feature
+    y = df['Fifa Ability Overall'] # target
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -52,17 +51,28 @@ try:
     print("Total values:", total_values)
     print("Percentage of accuracy:", accuracy_percentage)
 
-    # Plotting the joint plot
+    # Plotting the scatter plot with line of best fit
     plt.figure(figsize=(10, 6))
-    sns.jointplot(x=y_test, y=y_pred, kind='reg', color='skyblue', joint_kws={'scatter_kws': {'alpha': 0.7}})
-    plt.suptitle('Decision Tree Regression: Actual vs Predicted FIFA Ability Overall', y=1.02)
-    plt.xlabel('Actual Ability Overall')
-    plt.ylabel('Predicted FIFA Ability Overall')
+    sns.scatterplot(x=y_pred, y=y_test, color='skyblue', alpha=0.7)  # Switched x and y
+    sns.lineplot(x=y_test, y=y_test, color='red')  # Line of best fit
+    plt.title('Decision Tree Regression: Actual vs Predicted FIFA Ability Overall')
+    plt.xlabel('Predicted FIFA Ability Overall')  # Changed x label
+    plt.ylabel('Actual Ability Overall')  # Changed y label
+    plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
+    transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+    plt.show()
 
-    # Plot the Decision Tree
-    plt.figure(figsize=(20,10))
-    plot_tree(regressor, filled=True, feature_names=X.columns)
-    plt.title("Decision Tree Visualization")
+    # Plot the feature importance
+    feature_importances = regressor.feature_importances_
+    features = X.columns
+    plt.figure(figsize=(12, 6))
+    sns.barplot(x=features, y=feature_importances, palette='viridis')
+    plt.title('Feature Importance')
+    plt.xlabel('Features')
+    plt.ylabel('Importance')
+    plt.xticks(rotation=45)
+    plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
+             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
 
 except Exception as e:
