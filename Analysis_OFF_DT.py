@@ -23,8 +23,8 @@ try:
         raise ValueError("No numeric columns remaining after preprocessing")
 
     # Define the feature and target variables
-    X = df.drop(columns=['Fifa Ability Overall']) # feature
-    y = df['Fifa Ability Overall'] # target
+    X = df.drop(columns=['Fifa Ability Overall'])
+    y = df['Fifa Ability Overall']
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -53,34 +53,28 @@ try:
 
     # Plotting the scatter plot with line of best fit
     plt.figure(figsize=(10, 6))
-    sns.scatterplot(x=y_pred, y=y_test, color='skyblue', alpha=0.7)  # Switched x and y
+    sns.scatterplot(x=y_pred, y=y_test, color='skyblue', alpha=0.7, s=100)  # Switched x and y
     sns.lineplot(x=y_test, y=y_test, color='red')  # Line of best fit
     plt.title('Decision Tree Regression: Actual vs Predicted FIFA Ability Overall')
     plt.xlabel('Predicted FIFA Ability Overall')  # Changed x label
     plt.ylabel('Actual Ability Overall')  # Changed y label
     plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
-    transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
 
+  
     # Plot the feature importance
     feature_importances = regressor.feature_importances_
     features = X.columns
     plt.figure(figsize=(12, 6))
     sns.barplot(x=features, y=feature_importances, palette='viridis')
     plt.title('Feature Importance')
-    plt.xlabel('Features')
-    plt.ylabel('Importance')
-    plt.xticks(rotation=45)
+    plt.xlabel('Features', fontsize=10)
+    plt.ylabel('Importance', fontsize=10)
+    plt.xticks(rotation=0)  # Adjusted rotation parameter
     plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
-             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+            transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
 
 except Exception as e:
     print("An error occurred:", e)
-
-
-
-
-
-
-    

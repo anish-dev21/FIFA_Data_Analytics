@@ -8,7 +8,7 @@ import seaborn as sns
 
 try:
     # Load the data
-    file_path = 'modified_df_MID.csv'
+    file_path = 'modified_df_data.csv'
     df = pd.read_csv(file_path)
 
     # Preprocess the data
@@ -61,7 +61,7 @@ try:
     plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
              transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
-    
+
     # Plot the feature importance
     feature_importances = regressor.feature_importances_
     features = X.columns
@@ -75,10 +75,33 @@ try:
             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
 
-
-
 except Exception as e:
     print("An error occurred:", e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

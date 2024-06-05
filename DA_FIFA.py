@@ -50,6 +50,13 @@ data = data.dropna()
 print("\nMissing Values After Filling:")
 print(data.isnull().sum())
 
+# Calculate average minutes played per game
+df_data['Avg Minutes Played'] = np.where(df_data['Apps'] > 0, df_data['Minutes played'] / df_data['Apps'], np.nan)
+df_DEF['Avg Minutes Played'] = np.where(df_DEF['Apps'] > 0, df_DEF['Minutes played'] / df_DEF['Apps'], np.nan)
+df_MID['Avg Minutes Played'] = np.where(df_MID['Apps'] > 0, df_MID['Minutes played'] / df_MID['Apps'], np.nan)
+df_OFF['Avg Minutes Played'] = np.where(df_OFF['Apps'] > 0, df_OFF['Minutes played'] / df_OFF['Apps'], np.nan)
+
+
 # Drop unnecessary attributes in individual DataFrames
 df_data = df_data.drop(columns=[
     'Name.1', 'Yel', 'Red', 'Interceptions per game', 'Fouls',
@@ -57,7 +64,7 @@ df_data = df_data.drop(columns=[
     'Dispossessed per game', 'Bad control per game', 'Long balls per game', 
     'Through balls per game', 'Aerials Won per game', 'Tackles', 'Clearances per game', 
     'Dribbled past per game', 'Dribbles per game', 'Fouled per game', 'Key passes per game', 
-    'Passes per game', 'Crosses'
+    'Passes per game', 'Crosses', 'Minutes played', 'Shots pergame', 'Assists', 'Goals'
 ])
 
 df_DEF = df_DEF.drop(columns=[
@@ -65,14 +72,14 @@ df_DEF = df_DEF.drop(columns=[
     'Outfielder Block Per Game', 'OwnG', 'Offsides per game', 'Dispossessed per game', 
     'Bad control per game', 'Long balls per game', 'Through balls per game', 
     'Dribbled past per game', 'Goals', 'Shots per \ngame', 'Dribbles per game', 
-    'Fouled per game', 'Key passes per game', 'Crosses', 'Assists'
+    'Fouled per game', 'Key passes per game', 'Crosses', 'Assists', 'Minutes played'
 ])
 
 df_MID = df_MID.drop(columns=[
     'Yel', 'Red', 'Interceptions per game', 'Fouls', 'Offside won per game', 
     'Outfielder Block Per Game', 'OwnG', 'Offsides per game', 'Dispossessed per game', 
     'Bad control per game', 'Long balls per game', 'Through balls per game', 
-    'Fouled per game'
+    'Fouled per game', 'Minutes played'
 ])
 
 df_OFF = df_OFF.drop(columns=[
@@ -81,8 +88,11 @@ df_OFF = df_OFF.drop(columns=[
     'Bad control per game', 'Long balls per game', 'Through balls per game', 
     'Tackles', 'Clearances per game', 'Dribbled past per game', 'Dribbles per game', 
     'Fouled per game', 'Key passes per game', 'Passes per game', 'Pass success percentage', 
-    'Crosses'
+    'Crosses', 'Minutes played'
 ])
+
+columns_to_drop = []
+df_data = df_data.drop(columns=columns_to_drop)
 
 print("\n General")
 print(data.columns.tolist())
@@ -106,4 +116,4 @@ data.to_csv('modified_data.csv', index=False)
 df_data.to_csv('modified_df_data.csv', index=False)
 df_DEF.to_csv('modified_df_DEF.csv', index=False)
 df_MID.to_csv('modified_df_MID.csv', index=False)
-df_OFF.to_csv('modified_df_OFF.csv', index=False)
+df_OFF.to_csv('modified_df_OFF.csv', index=False)  
