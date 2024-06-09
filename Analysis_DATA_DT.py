@@ -58,8 +58,8 @@ try:
     plt.title('Decision Tree Regression: Actual vs Predicted FIFA Ability Overall')
     plt.xlabel('Predicted FIFA Ability Overall')  # Changed x label
     plt.ylabel('Actual Ability Overall')  # Changed y label
-    plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
-             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+    plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%\nMatching Values: {matching_values}/{total_values}', 
+            transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
     plt.show()
 
     # Plot the feature importance
