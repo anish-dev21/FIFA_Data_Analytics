@@ -70,9 +70,11 @@ try:
     plt.title('Feature Importance')
     plt.xlabel('Features', fontsize=10)
     plt.ylabel('Importance', fontsize=10)
-    plt.xticks(rotation=0)  # Adjusted rotation parameter
+    plt.xticks(rotation=45, ha='right', fontsize=8)  
     plt.text(0.05, 0.95, f'Accuracy: {accuracy_percentage:.2f}%', 
             transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+    plt.subplots_adjust(bottom=0.3)  # Adjust bottom to make room for rotated labels
+    plt.tight_layout()  # Adjust layout to make room for the rotated labels
     plt.show()
 
 except Exception as e:
