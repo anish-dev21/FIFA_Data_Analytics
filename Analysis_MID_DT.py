@@ -16,6 +16,14 @@ try:
     numeric_cols = df.select_dtypes(include=np.number).columns
     df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
     df['Fifa Ability Overall'] = pd.to_numeric(df['Fifa Ability Overall'], errors='coerce')
+    df = df.drop('Pass success percentage', axis=1)
+    df = df.drop('Aerials Won per game', axis=1)
+    df = df.drop('Position', axis=1)
+    df = df.drop('Dribbles per game', axis=1)
+    df = df.drop('Crosses', axis=1)
+    df = df.drop('Key passes per game', axis=1)
+    df = df.drop('Assists', axis=1)
+    df = df.drop('Dribbled past per game', axis=1)
     df.dropna(subset=['Fifa Ability Overall'], inplace=True)
     df = df.select_dtypes(include=np.number)
 
