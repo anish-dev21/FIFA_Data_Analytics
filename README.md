@@ -88,7 +88,7 @@ Ensure you have the following installed:
    - Refer to `scripts/Analysis_DATA_DT.py` and `scripts/DA_DecisionTree_OFF.py` for details.
 
 2. Random Forests:
-   - Provided better results with a higher R-squared value.
+   - Provided better results with a higher R-squared value of 0.8.
    - Refer to `notebooks/gab_randomForest copy.ipynb` and `scripts/Analysis_DATA_RF.py` for the analysis and results.
 
 ## Results
