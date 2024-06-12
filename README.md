@@ -100,23 +100,7 @@ Ensure you have the following installed:
 - Our analysis indicated that the models achieved up to 30% accuracy in matching FIFA ratings with real-life player data.
 - We therefore realized that a decision tree is not the best option for our cause.
 - The random forest gave us a significantly higher R^2, especially when we focused on the important attributes of the respective tables.
-
-## Visual Representation
-- Here are two key graphs that provide visual insights into our data and model performance:
-
-- Scatter Plot of FIFA Ratings vs. Real-Life Performance:
-![Scatter Plot](plots/Plot_Rating.png)
-
-
-
--This scatter plot shows the relationship between FIFA ratings and real-life player performance. It helps identify any outliers or discrepancies in the data.
-
--Random Forest Model Performance:
-![Random Forest Performance](plots/Plot_Goals.py)
-
-
-
-This plot illustrates the performance of our random forest model, highlighting the features that had the most significant impact on the model's accuracy.
+  
 ## Team Members
 
 - Anish Biswas
