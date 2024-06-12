@@ -1,7 +1,3 @@
-Based on the files in your repository, here is a revised README file tailored to the structure and content of your project.
-
----
-
 # FIFA Data Analytics
 
 ## Project Overview
