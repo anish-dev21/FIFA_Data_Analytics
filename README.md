@@ -93,7 +93,7 @@ Ensure you have the following installed:
 
 ## Results
 
-- Our analysis indicated that the models did not achieve more than 30% accuracy in matching FIFA ratings with real-life player data.
+- Our analysis indicated that the models achieved up to 30% accuracy in matching FIFA ratings with real-life player data.
 - We therefore realized that a decision tree is not the best option for our cause.
 - The random forest gave us a significantly higher R^2, especially when we focused on the important attributes of the respective tables.
 
