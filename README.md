@@ -99,11 +99,11 @@ Ensure you have the following installed:
 
 ## Team Members
 
-- Linda Blumenthal
+- Anish Biswas
 - Deema Aassy
 - I-En Hung
+- Linda Blumenthal
 - Marco Schneider
-- Anish Biswas
 
 ## Conclusion
 
