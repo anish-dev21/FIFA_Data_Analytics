@@ -28,3 +28,8 @@ such as player injuries, team dynamics, or psychological factors.
 
 **Solution:
 
+1)we want to predict if the fifa overall ability can reflect the rating(real life)
+>>use these 2 attribute to create an overall look first and then
+> devided into 3 categories, OFF, DEF, MID and see how accurate it is.
+
+use scattterplot.
