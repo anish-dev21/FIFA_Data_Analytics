@@ -1,4 +1,5 @@
-# FIFA_Data_Analytics
-Github repository for University project on Fifa in the field of Data Analytics
+# README
+Data.xlsx file has to be changed like follow:
 
-Team Members: Linda Blumenthal,Deema Aassy, I-En Hung, Marco Schneider, Anish Biswas
+1) sheet Data, column "shot per game" > remove the extra line
+2) sheet DEF, remove the numbers out of place

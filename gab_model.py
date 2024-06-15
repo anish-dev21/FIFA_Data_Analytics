@@ -11,7 +11,7 @@ def select_randomForest(X, y, n_features):
     model_rf = RandomForestRegressor(random_state=42)
     model_rf.fit(X, y)
     importances = model_rf.feature_importances_
-    feature_importances = pd.Series(importances, index=X.columns) #!?
+    feature_importances = pd.Series(importances, index=X.columns)
     selector = SelectFromModel(model_rf, threshold=-np.inf, max_features=n_features, prefit=True)
     important_features = X.columns[selector.get_support()]
     return important_features, feature_importances
@@ -43,3 +43,22 @@ def feature_selection_pipeline(df, position, feature_selector, model_name, amoun
     plot_feature_importances(importances, X.columns, position, model_name, amount_of_features)
     
     return df[selected_features.tolist() + ['Rating']]
+
+# df_off_rf = feature_selection_pipeline(df_off, 'Offensive', select_randomForest, 'Random Forest', 10)
+# df_mid_rf = feature_selection_pipeline(df_mid, 'Midfield', select_randomForest, 'Random Forest', 10)
+# df_def_rf = feature_selection_pipeline(df_def, 'Defensive', select_randomForest, 'Random Forest', 10)
+
+# # Model performance testing
+# print("\nModel Performance Testing\n")
+
+# # Offensive players
+# print("\nOffensive Players\n")
+# test_model_performance(df_off_rf.drop(columns=['Rating']), df_off_rf['Rating'], 'Offensive', RandomForestRegressor(random_state=42), 'Random Forest')
+
+# # Midfield players
+# print("\nMidfield Players\n")
+# test_model_performance(df_mid_rf.drop(columns=['Rating']), df_mid_rf['Rating'], 'Midfield', RandomForestRegressor(random_state=42), 'Random Forest')
+
+# # Defensive players
+# print("\nDefensive Players\n")
+# test_model_performance(df_def_rf.drop(columns=['Rating']), df_def_rf['Rating'], 'Defensive', RandomForestRegressor(random_state=42), 'Random Forest')
